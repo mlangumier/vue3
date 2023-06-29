@@ -22,6 +22,10 @@ const switchTextColor = () => {
 }
 
 onMounted(() => {
+  if (!pElementRef.value) {
+    return
+  }
+
   pElementRef.value.textContent = 'This ref-element is now mounted'
 })
 </script>
@@ -29,7 +33,7 @@ onMounted(() => {
 <template>
   <main class="main">
     <section>
-      <h1>This is a learning page</h1>
+      <h1>VueJS 3 Tutorial</h1>
       <p>
         Based on the
         <a href="https://vuejs.org/tutorial/#step-1" alt="Tutorial Vue.js">tutorial from Vue.js</a>
@@ -75,15 +79,15 @@ onMounted(() => {
 
     <section>
       <h2>Children components</h2>
-      <ChildProps :message="childMessage" @response="(msg) => (childResponse = msg)">
-        <p>- This is how to use children with ChildrenComponents & "slot"</p>
+      <ChildProps :message="childMessage" @response="(msg:string) => (childResponse = msg)">
+        <p>- This is how to use children (slots) with ChildrenComponents</p>
       </ChildProps>
-      {{ childResponse.response }}!
+      {{ childResponse.response }} (+ {{ childResponse.test }})
     </section>
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 section {
   margin-top: 2rem;
 }
@@ -93,13 +97,5 @@ section {
 }
 .red-text {
   color: rgb(202, 17, 17);
-}
-
-@media (min-width: 1024px) {
-  .main {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
 }
 </style>

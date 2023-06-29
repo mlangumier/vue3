@@ -3,13 +3,13 @@ const props = defineProps({
   message: String
 })
 
-const emit = defineEmits(['responseMsg', 'test'])
+const emit = defineEmits(['response', 'test'])
 
-emit('response', { response: 'Hello from Child', test: 'Testing from child!' })
+emit('response', { response: 'Hello from Child!', test: 'Testing from child!' })
 </script>
 
 <template>
-  <p>Message received from parent component: {{ message || 'No message received' }}</p>
+  <p>Message received from parent component: "{{ message || 'No message received' }}"</p>
 
   <!-- This will receive the children of the parent -->
   <slot />
