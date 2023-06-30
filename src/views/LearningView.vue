@@ -32,8 +32,9 @@ onMounted(() => {
 
 <template>
   <main class="main">
+    <h1>VueJS 3 Tutorial</h1>
+
     <section>
-      <h1>VueJS 3 Tutorial</h1>
       <p>
         Based on the
         <a href="https://vuejs.org/tutorial/#step-1" alt="Tutorial Vue.js">tutorial from Vue.js</a>

@@ -75,7 +75,7 @@ const deleteTodo = (todoId: string) => {
 
 <template>
   <main>
-    <h2>Create todos</h2>
+    <h1>Create todos</h1>
     <p>
       This page was done following the instructions of
       <a href="https://www.youtube.com/watch?v=KTFH4P8unUQ" alt="tutorial todos and more"

@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import router from '@/router'
 
-const routes = [
-  { path: '/', name: 'Home' },
-  { path: '/tutorial', name: 'Tutorial' },
-  { path: '/todos', name: 'Todos List' }
-]
+const routes = router.options.routes
 </script>
 
 <template>
@@ -13,9 +10,13 @@ const routes = [
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="40" height="40" />
 
     <nav>
-      <RouterLink v-for="route in routes" :key="route.name" :to="route.path">{{
-        route.name
-      }}</RouterLink>
+      <RouterLink
+        v-for="route in routes"
+        :key="route.name"
+        :to="route.path"
+        active-class="active"
+        >{{ route.name }}</RouterLink
+      >
     </nav>
   </header>
 </template>
@@ -40,17 +41,24 @@ nav {
   a {
     display: inline-block;
     padding: 0 1rem;
+    color: var(--color-text);
     border-left: 1px solid var(--color-border);
+
+    &:hover {
+      color: var(--vt-c-white);
+    }
 
     &:first-of-type {
       border: 0;
     }
 
-    &.router-link-exact-active {
-      color: var(--color-text);
+    &.router-link-exact-active,
+    &.active {
+      color: var(--vt-c-white);
+      background-color: var(--vt-c-indigo);
 
       &:hover {
-        background-color: transparent;
+        background-color: var(--vt-c-green);
       }
     }
   }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import ButtonComponent from '@/components/misc/ButtonComponent.vue'
+import ButtonComponent from './ButtonComponent.vue'
 
 const todoState = reactive({
   todo: '',
